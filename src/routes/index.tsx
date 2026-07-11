@@ -16,9 +16,7 @@ import { pageTransition, staggerContainer } from "@/lib/motion";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "Governed by Knowledge, Built on Trust | CA Shyam Bhatia & Co." },
-    ],
+    meta: [{ title: "Governed by Knowledge, Built on Trust | CA Shyam Bhatia & Co." }],
   }),
   component: Index,
 });
@@ -70,9 +68,9 @@ function TaxSlider() {
   const [income, setIncome] = useState(1500000);
   const [incomeType, setIncomeType] = useState("salary");
   const [age, setAge] = useState("under60");
-  
+
   const MIN_INCOME = 30000;
-  const MAX_INCOME = 10000000; 
+  const MAX_INCOME = 10000000;
 
   // ... (calculateTax and formatINR functions remain the same)
 
@@ -82,18 +80,20 @@ function TaxSlider() {
     <div className="w-full max-w-[400px] mx-auto bg-white border-2 border-black rounded-2xl p-8 font-sans">
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-sm font-bold uppercase tracking-widest">Tax Estimate</h2>
-        <span className="text-[10px] font-bold bg-black text-white px-3 py-1 rounded-full">FY 25-26</span>
+        <span className="text-[10px] font-bold bg-black text-white px-3 py-1 rounded-full">
+          FY 25-26
+        </span>
       </div>
 
       {/* Toggles */}
       <div className="space-y-4 mb-8">
         <div className="grid grid-cols-2 bg-gray-100 p-1 rounded-lg">
-          {['salary', 'business'].map((type) => (
+          {["salary", "business"].map((type) => (
             <button
               key={type}
               onClick={() => setIncomeType(type)}
               className={`text-xs py-2.5 rounded-md font-bold transition-all ${
-                incomeType === type ? 'bg-black text-white' : 'text-gray-400 hover:text-black'
+                incomeType === type ? "bg-black text-white" : "text-gray-400 hover:text-black"
               }`}
             >
               {type.charAt(0).toUpperCase() + type.slice(1)}
@@ -103,15 +103,15 @@ function TaxSlider() {
 
         <div className="grid grid-cols-3 bg-gray-100 p-1 rounded-lg">
           {[
-            { id: 'under60', label: '< 60' },
-            { id: 'senior', label: '60-80' },
-            { id: 'super', label: '> 80' }
+            { id: "under60", label: "< 60" },
+            { id: "senior", label: "60-80" },
+            { id: "super", label: "> 80" },
           ].map((a) => (
             <button
               key={a.id}
               onClick={() => setAge(a.id)}
               className={`text-[11px] py-2.5 rounded-md font-bold transition-all ${
-                age === a.id ? 'bg-orange-500 text-white' : 'text-gray-400 hover:text-black'
+                age === a.id ? "bg-orange-500 text-white" : "text-gray-400 hover:text-black"
               }`}
             >
               {a.label}
@@ -121,7 +121,9 @@ function TaxSlider() {
       </div>
 
       <div className="mb-8">
-        <p className="text-4xl font-extrabold tracking-tighter">₹{income.toLocaleString('en-IN')}</p>
+        <p className="text-4xl font-extrabold tracking-tighter">
+          ₹{income.toLocaleString("en-IN")}
+        </p>
       </div>
 
       {/* Elastic Slider */}
@@ -138,7 +140,7 @@ function TaxSlider() {
         <div className="w-full h-1.5 bg-gray-200 rounded-lg overflow-hidden">
           <div className="h-full bg-black" style={{ width: `${sliderPercent}%` }} />
         </div>
-        <motion.div 
+        <motion.div
           className="absolute w-5 h-5 bg-black rounded-full border-2 border-white shadow-lg z-10 pointer-events-none"
           style={{ left: `${sliderPercent}%` }}
           animate={{ x: "-50%" }}
@@ -146,7 +148,7 @@ function TaxSlider() {
         />
       </div>
 
-      <button 
+      <button
         onClick={() => (window.location.href = "http://localhost:8080/contact-us")}
         className="w-full py-5 bg-black text-white text-sm font-black rounded-xl hover:bg-orange-600 transition-all active:scale-[0.98] shadow-xl shadow-gray-200 uppercase tracking-widest"
       >
@@ -169,9 +171,8 @@ function Index() {
               <HeroHeadline />
             </div>
             <p className="text-[18px] md:text-[20px] text-[#60646c] mt-6 max-w-[520px] leading-relaxed">
-              For over 25 years, we've been trusted partners to more than 1,500
-              clients across India and the UAE — delivering financial clarity,
-              compliance, and confidence.
+              For over 25 years, we've been trusted partners to more than 1,500 clients across India
+              and the UAE — delivering financial clarity, compliance, and confidence.
             </p>
             <div className="mt-8 flex flex-wrap gap-4 items-center">
               <EmberButton to="/contact-us">Book a consultation →</EmberButton>
@@ -185,7 +186,10 @@ function Index() {
                 { n: 25, s: "+", l: "Industries Served" },
               ].map((x, i) => (
                 <div key={i}>
-                  <div className="text-[32px] font-semibold text-black" style={{ letterSpacing: "-0.02em" }}>
+                  <div
+                    className="text-[32px] font-semibold text-black"
+                    style={{ letterSpacing: "-0.02em" }}
+                  >
                     <StatCounter target={x.n} suffix={x.s} />
                   </div>
                   <div className="text-[12px] font-medium text-[#8b8d98] mt-1 uppercase tracking-wider">
@@ -241,15 +245,8 @@ function Index() {
       {/* Why us */}
       <section className="bg-[#f3f3f7] py-20">
         <div className="container-page">
-          <SectionHeading
-            eyebrow="Why Us"
-            heading="What sets 25 years of trust apart"
-            center
-          />
-          <motion.div
-            {...staggerContainer}
-            className="grid md:grid-cols-2 gap-6 mt-12"
-          >
+          <SectionHeading eyebrow="Why Us" heading="What sets 25 years of trust apart" center />
+          <motion.div {...staggerContainer} className="grid md:grid-cols-2 gap-6 mt-12">
             {PILLARS.map((p) => (
               <TrustPillar key={p.number} {...p} />
             ))}
@@ -263,15 +260,8 @@ function Index() {
       {/* Testimonials */}
       <section className="bg-white py-20">
         <div className="container-page">
-          <SectionHeading
-            eyebrow="Client Reviews"
-            heading="5.0 · 15 reviews on Google"
-            center
-          />
-          <motion.div
-            {...staggerContainer}
-            className="grid md:grid-cols-3 gap-6 mt-12"
-          >
+          <SectionHeading eyebrow="Client Reviews" heading="5.0 · 15 reviews on Google" center />
+          <motion.div {...staggerContainer} className="grid md:grid-cols-3 gap-6 mt-12">
             {TESTIMONIALS.map((t, i) => (
               <TestimonialCard key={i} {...t} />
             ))}
@@ -282,14 +272,12 @@ function Index() {
       {/* Insights preview */}
       <section className="bg-[#f3f3f7] py-20">
         <div className="container-page text-center">
-          <h2
-            className="text-[36px] font-semibold text-black"
-            style={{ letterSpacing: "-0.02em" }}
-          >
+          <h2 className="text-[36px] font-semibold text-black" style={{ letterSpacing: "-0.02em" }}>
             Insights & Updates
           </h2>
           <p className="text-[16px] text-[#60646c] mt-4 max-w-[560px] mx-auto">
-            Tax law changes, compliance deadlines, and financial planning guides — straight from our desk.
+            Tax law changes, compliance deadlines, and financial planning guides — straight from our
+            desk.
           </p>
           <div className="mt-8 border border-dashed border-[#b9bbc6] rounded-[12px] p-16 bg-white text-[#60646c]">
             Articles coming soon. Check back for tax guides and compliance updates.

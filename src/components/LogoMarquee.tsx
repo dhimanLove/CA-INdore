@@ -11,7 +11,6 @@ export function LogoMarquee() {
 
   useEffect(() => {
     if (!trackRef.current) return;
-    
     const track = trackRef.current;
     // Calculate distance based on half the set
     const distance = track.scrollWidth / 2;
