@@ -1,0 +1,55 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@theme inline {
+  --color-ember: #ff5900;
+  --color-abyss: #000710;
+  --color-carbon: #15191e;
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+  --color-fog: #f3f3f7;
+  --color-mist: #b9bbc6;
+  --color-steel: #8b8d98;
+  --color-pewter: #6f737b;
+  --color-graphite: #60646c;
+
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-border: #b9bbc6;
+  --color-muted: #f3f3f7;
+  --color-muted-foreground: #60646c;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --radius-tag: 6px;
+  --radius-card: 12px;
+  --radius-input: 12px;
+  --radius-button: 12px;
+}
+
+:root {
+  --page-max: 1200px;
+}
+
+@layer base {
+  * {
+    border-color: #b9bbc6;
+    font-feature-settings: "calt" 0, "liga" 0, "ss03", "cv01", "cv10";
+  }
+  html,
+  body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@utility container-page {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
